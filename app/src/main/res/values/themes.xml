@@ -1,0 +1,6 @@
+<resources>
+    <style name="Theme.StudyLockTV" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_tv_gradient</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>

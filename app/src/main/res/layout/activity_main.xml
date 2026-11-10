@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tv_gradient">
+
+    <!-- 1. 软件首页 (Warm Bokeh Home Dashboard) -->
+    <LinearLayout
+        android:id="@+id/layoutHomeScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_home_warm"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="48dp">
+
+        <!-- 左侧图标、时钟与状态 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingEnd="32dp">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_study_lock"
+                android:contentDescription="学伴时光" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="学伴时光 · 护眼守护"
+                android:textColor="#0C4A6E"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvHomeClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="14:00"
+                android:textColor="#0C4A6E"
+                android:textSize="82sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvHomeCountdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="守护未开启 · 点击右侧开启守护"
+                android:textColor="#0369A1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvHomeSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="#D9FFFFFF"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="每轮 15 分钟 · 每次 2 题"
+                android:textColor="#0F172A"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- 右侧极简 3 枚遥控器操作按钮 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <Button
+                android:id="@+id/btnHomeToggleGuard"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_home_button"
+                android:focusable="true"
+                android:text="开启守护模式"
+                android:textColor="@color/btn_cloud_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnHomeTestQuiz"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_home_button"
+                android:focusable="true"
+                android:text="做题练习"
+                android:textColor="@color/btn_cloud_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnHomeOpenSettings"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_home_button"
+                android:focusable="true"
+                android:text="家长设置（需密码）"
+                android:textColor="@color/btn_cloud_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="提示：任意页面连按 5 次上键可强制进入家长设置"
+                android:textColor="#0369A1"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 2. 家长控制台 (Settings Screen) -->
+    <ScrollView
+        android:id="@+id/layoutSettingsScreen"
+        android:visibility="gone" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="28dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="14dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="学伴时光 · 家长控制台" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tvHeaderBadge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="题库加载中" android:textColor="#BAE6FD" android:textSize="14sp" android:layout_marginEnd="14dp" />
+            <Button android:id="@+id/btnBackToHome" android:layout_width="wrap_content" android:layout_height="44dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="16dp" android:text="← 返回首页" android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 顶部主开关 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:gravity="center_vertical" android:orientation="horizontal" android:padding="18dp" android:layout_marginBottom="12dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="学伴时光守护" android:textSize="20sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tvGuardSub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="守护已关闭" android:textColor="#BAE6FD" android:textSize="14sp" />
+            </LinearLayout>
+            <Button android:id="@+id/btnToggleGuard" android:layout_width="160dp" android:layout_height="50dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="开启守护" android:textSize="16sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 状态卡 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="18dp" android:layout_marginBottom="12dp">
+            <TextView android:id="@+id/tvStatusHeadline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="守护未开启" android:textSize="22sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tvCurrentSummary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textColor="#BAE6FD" android:textSize="14sp" android:text="每轮 15 分钟" />
+            <TextView android:id="@+id/tvStatusPills" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textColor="#FFD166" android:textSize="13sp" android:text="状态检查中" />
+        </LinearLayout>
+
+        <!-- 每轮观看时长 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="守护设置 · 每轮观看时长" android:textSize="17sp" android:textStyle="bold" />
+                <Button android:id="@+id/btnSaveAsDefault" android:layout_width="wrap_content" android:layout_height="38dp" android:background="@drawable/bg_primary_tv" android:focusable="true" android:paddingHorizontal="14dp" android:text="💾 保存为默认" android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <Button android:id="@+id/btnDur15" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="15分钟" />
+                <Button android:id="@+id/btnDur20" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="20分钟" />
+                <Button android:id="@+id/btnDur30" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="30分钟" />
+                <Button android:id="@+id/btnDur45" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="45分钟" />
+                <Button android:id="@+id/btnDur60" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="14dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="60分钟" />
+                <Button android:id="@+id/btnDurMinus" android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="-" />
+                <TextView android:id="@+id/tvCustomDuration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="12dp" android:text="15 分钟" android:textSize="15sp" />
+                <Button android:id="@+id/btnDurPlus" android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="+" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 每次答题数 / 答错等待 / 继续挑战奖惩 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="答题数量 / 答错等待 / 继续挑战奖惩" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnQ1" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="1道" />
+                <Button android:id="@+id/btnQ2" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="2道" />
+                <Button android:id="@+id/btnQ3" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="3道" />
+                <Button android:id="@+id/btnQ5" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="14dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="5道" />
+                <Button android:id="@+id/btnQMinus" android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="-" />
+                <TextView android:id="@+id/tvCustomQ" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="12dp" android:text="2 道" android:textSize="15sp" />
+                <Button android:id="@+id/btnQPlus" android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="+" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnWait0" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="0秒" />
+                <Button android:id="@+id/btnWait30" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="30秒" />
+                <Button android:id="@+id/btnWait60" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="60秒" />
+                <Button android:id="@+id/btnWait90" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="90秒" />
+                <Button android:id="@+id/btnWait120" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="12dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="120秒" />
+                <Button android:id="@+id/btnWaitMinus" android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="-" />
+                <TextView android:id="@+id/tvCustomWait" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10dp" android:text="10 秒" android:textSize="15sp" />
+                <Button android:id="@+id/btnWaitPlus" android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="+" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="继续挑战奖励：" android:textSize="14sp" />
+                <Button android:id="@+id/btnBonusRewardMinus" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="-" />
+                <TextView android:id="@+id/tvBonusReward" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10dp" android:text="+5 分钟" android:textColor="#6DF59E" android:textSize="15sp" />
+                <Button android:id="@+id/btnBonusRewardPlus" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginEnd="20dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="+" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="失败扣除：" android:textSize="14sp" />
+                <Button android:id="@+id/btnBonusPenaltyMinus" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="-" />
+                <TextView android:id="@+id/tvBonusPenalty" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10dp" android:text="-5 分钟" android:textColor="#FF8A80" android:textSize="15sp" />
+                <Button android:id="@+id/btnBonusPenaltyPlus" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="+" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 鼓励与辅助开关 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="鼓励音效与防退出设置" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnPraiseOff" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="关闭鼓励" />
+                <Button android:id="@+id/btnPraiseSfx" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="电视原声音效(推荐)" />
+                <Button android:id="@+id/btnPraiseVoice" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="音效+语音夸奖" />
+                <Button android:id="@+id/btnTestPraise" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="试听鼓励" />
+                <Button android:id="@+id/btnTestExplain" android:layout_width="wrap_content" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="试听讲解" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/btnToggleBoot" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="开机自启：开启" />
+                <Button android:id="@+id/btnToggleExplainAloud" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="答错语音讲解：开启" />
+                <Button android:id="@+id/btnTogglePauseMedia" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="答题暂停播放：开启" />
+                <Button android:id="@+id/btnHomePerms" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_primary_tv" android:focusable="true" android:paddingHorizontal="14dp" android:text="🛡️ 一键权限与内置语音" android:textColor="#FFFFFF" android:textStyle="bold" />
+                <Button android:id="@+id/btnToggleStrict" android:layout_width="wrap_content" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="防闪烁严格锁：开启" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 定时开关 & 临时停用 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp" android:layout_marginBottom="12dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="定时开启/关闭守护 &amp; 临时停用" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnScheduleToggle" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="14dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="当前：全天生效" />
+                <TextView android:id="@+id/tvScheduleWindow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="18:00 ~ 21:00" android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnStartMinus" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="6dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="开始 -30分" />
+                <Button android:id="@+id/btnStartPlus" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="14dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="开始 +30分" />
+                <Button android:id="@+id/btnEndMinus" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="6dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="结束 -30分" />
+                <Button android:id="@+id/btnEndPlus" android:layout_width="wrap_content" android:layout_height="40dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="结束 +30分" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <Button android:id="@+id/btnTemp15" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="停用15分钟" />
+                <Button android:id="@+id/btnTemp30" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="停用30分钟" />
+                <Button android:id="@+id/btnTemp60" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="停用60分钟" />
+                <Button android:id="@+id/btnTempResume" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="12dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="立即恢复" />
+                <TextView android:id="@+id/tvTempPauseStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前未临时停用" android:textColor="#BAE6FD" android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 出题科目 & 操作 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="出题科目（人教版同步）&amp; 常用操作" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnSubjPinyin" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="拼音题" />
+                <Button android:id="@+id/btnSubjCn" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="✓ 语文" />
+                <Button android:id="@+id/btnSubjMath" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="✓ 数学" />
+                <Button android:id="@+id/btnSubjEn" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="英语" />
+                <Button android:id="@+id/btnSubjPhy" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="物理" />
+                <Button android:id="@+id/btnSubjGeo" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="地理" />
+                <Button android:id="@+id/btnSubjHis" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="8dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="历史" />
+                <Button android:id="@+id/btnSubjBio" android:layout_width="wrap_content" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="12dp" android:text="生物" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnTestQuizNow" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="立即测试弹题" />
+                <Button android:id="@+id/btnResetTimer" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="重置计时" />
+                <Button android:id="@+id/btnQuestionBank" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="题库管理" />
+                <Button android:id="@+id/btnLanUpload" android:layout_width="wrap_content" android:layout_height="44dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="手机局域网上传题库" />
+                <Button android:id="@+id/btnChangePin" android:layout_width="wrap_content" android:layout_height="44dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="14dp" android:text="修改数字密码" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/btnBatterySetup" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="16dp" android:text="免清后台 / 电池白名单" />
+                <Button android:id="@+id/btnViewLogs" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="16dp" android:text="查看运行记录" />
+                <Button android:id="@+id/btnUsageGuide" android:layout_width="wrap_content" android:layout_height="42dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="16dp" android:text="查看使用须知" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+    <!-- 3. 首次启动 / 电视权限逐项检测向导 -->
+    <ScrollView
+        android:id="@+id/layoutPermissionWizard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_tv_gradient"
+        android:padding="36dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="学伴时光 · 一键权限引导与实时检测"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnPermOneClickAuto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="46dp"
+                    android:background="@drawable/bg_primary_tv"
+                    android:focusable="true"
+                    android:paddingHorizontal="18dp"
+                    android:text="🚀 一键顺序引导开启"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电视权限引导与逐项检测"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPermWizardSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:text="请逐项开启以下权限，确保回到电视桌面后仍能持续计时并全屏弹题"
+                android:textColor="#BAE6FD"
+                android:textSize="15sp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:gravity="center_vertical" android:orientation="horizontal" android:padding="16dp" android:layout_marginBottom="10dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1. 悬浮窗权限（在其他应用上层显示）" android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/tvPermOverlayStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="检测中..." android:textColor="#BAE6FD" android:textSize="13sp" />
+                </LinearLayout>
+                <Button android:id="@+id/btnPermOverlay" android:layout_width="130dp" android:layout_height="46dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="去开启" android:textColor="#FFFFFF" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:gravity="center_vertical" android:orientation="horizontal" android:padding="16dp" android:layout_marginBottom="10dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2. 忽略电池优化（后台常驻白名单）" android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/tvPermBatteryStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="检测中..." android:textColor="#BAE6FD" android:textSize="13sp" />
+                </LinearLayout>
+                <Button android:id="@+id/btnPermBattery" android:layout_width="130dp" android:layout_height="46dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="去开启" android:textColor="#FFFFFF" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:gravity="center_vertical" android:orientation="horizontal" android:padding="16dp" android:layout_marginBottom="10dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3. 通知保活权限（前台服务状态栏）" android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/tvPermNotifyStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="检测中..." android:textColor="#BAE6FD" android:textSize="13sp" />
+                </LinearLayout>
+                <Button android:id="@+id/btnPermNotify" android:layout_width="130dp" android:layout_height="46dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="去开启" android:textColor="#FFFFFF" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_card" android:gravity="center_vertical" android:orientation="horizontal" android:padding="16dp" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4. 电视后台弹出界面 &amp; 开机自启动（小米/海信等电视必开）" android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="请在应用详情 -> 权限管理中打开「后台弹出界面」与「自启动」" android:textColor="#BAE6FD" android:textSize="13sp" />
+                </LinearLayout>
+                <Button android:id="@+id/btnPermAppInfo" android:layout_width="150dp" android:layout_height="46dp" android:background="@drawable/bg_option_button" android:focusable="true" android:text="打开权限详情" android:textColor="#FFFFFF" android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="end">
+                <Button android:id="@+id/btnPermTestTts" android:layout_width="wrap_content" android:layout_height="50dp" android:layout_marginEnd="14dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="20dp" android:text="🔊 测试语音播报" android:textColor="#FFFFFF" android:textStyle="bold" />
+                <Button android:id="@+id/btnPermDone" android:layout_width="wrap_content" android:layout_height="50dp" android:background="@drawable/bg_option_button" android:focusable="true" android:paddingHorizontal="24dp" android:text="检测完成，进入首页 →" android:textColor="#FFFFFF" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

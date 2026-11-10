@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="460dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_tv_gradient"
+    android:orientation="vertical"
+    android:padding="22dp">
+
+    <TextView
+        android:id="@+id/tvPinDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="● 首次安装 · 设置 4 位家长数字密码"
+        android:textColor="#0C4A6E"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPinStepDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="请使用遥控器或点击数字键输入 4 位数字密码"
+        android:textColor="#334155"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/pinSlot0"
+            android:layout_width="54dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_pin_slot_active">
+            <View
+                android:id="@+id/pinDot0"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/pinSlot1"
+            android:layout_width="54dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_pin_slot">
+            <View
+                android:id="@+id/pinDot1"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/pinSlot2"
+            android:layout_width="54dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_pin_slot">
+            <View
+                android:id="@+id/pinDot2"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/pinSlot3"
+            android:layout_width="54dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_pin_slot">
+            <View
+                android:id="@+id/pinDot3"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPinError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:minHeight="18dp"
+        android:textColor="#FB7185"
+        android:textSize="12sp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:columnCount="3"
+        android:useDefaultMargins="true">
+
+        <Button android:id="@+id/btnPin1" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="1" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin2" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="2" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin3" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="3" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin4" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="4" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin5" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="5" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin6" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="6" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin7" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="7" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin8" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="8" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin9" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="9" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPinClear" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="清空" android:textColor="@color/btn_cloud_text" android:textSize="13sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPin0" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="0" android:textColor="@color/btn_cloud_text" android:textSize="18sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnPinBack" android:layout_width="0dp" android:layout_height="48dp" android:layout_columnWeight="1" android:background="@drawable/bg_option_button" android:focusable="true" android:text="⌫ 退格" android:textColor="@color/btn_cloud_text" android:textSize="13sp" android:textStyle="bold" />
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPinCancel"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.9"
+            android:background="@drawable/bg_option_button"
+            android:focusable="true"
+            android:text="取消"
+            android:textColor="@color/btn_cloud_text"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnPinConfirm"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_weight="2.1"
+            android:background="@drawable/bg_primary_tv"
+            android:focusable="true"
+            android:text="确认 →"
+            android:textColor="@color/btn_cloud_text"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
