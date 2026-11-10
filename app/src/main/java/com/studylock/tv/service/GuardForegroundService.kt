@@ -25,6 +25,7 @@ class GuardForegroundService : Service() {
     companion object {
         var isRunning = false
         const val ACTION_START = "com.studylock.tv.START_GUARD"
+        const val ACTION_BOOT_LAUNCH = "com.studylock.tv.BOOT_LAUNCH"
         const val ACTION_STOP = "com.studylock.tv.STOP_GUARD"
         const val ACTION_TEST_NOW = "com.studylock.tv.TEST_NOW"
         const val ACTION_RESET_TIMER = "com.studylock.tv.RESET_TIMER"
